@@ -1,8 +1,6 @@
 defmodule GraphQLParser.AbsintheParser do
-  @moduledoc """
-  Extracted GrapqhQL parser from Absinthe.
-
-  """
+  @moduledoc false
+  # Extracted from Absinthe, useful for testing/benchmarking.
   alias Absinthe.Language
   alias Absinthe.Phase
 

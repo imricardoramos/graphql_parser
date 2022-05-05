@@ -18,8 +18,7 @@ defmodule GraphqlParser.MixProject do
 to an Absinthe.Language representation.",
       package: package(),
       docs: [
-        main: "Quarto",
-        canonical: "http://hexdocs.pm/quarto",
+        canonical: "http://hexdocs.pm/graphql_parser",
         source_url: @url
       ]
     ]
@@ -33,7 +32,6 @@ to an Absinthe.Language representation.",
       files: ~w(
         LICENSE
         README.md
-        config
         lib
         mix.exs
         native/graphqlparser_native/src
