@@ -7,7 +7,7 @@ defmodule GraphqlParser.MixProject do
     [
       app: :graphql_parser,
       version: "0.1.0",
-      elixir: "~> 1.13",
+      elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       source_url: @url,
@@ -52,8 +52,8 @@ to an Absinthe.Language representation.",
   defp deps do
     [
       {:absinthe, "~> 1.7"},
-      {:rustler, "~> 0.25"},
-      {:benchee, "~> 1.1", optional: true},
+      {:rustler, "~> 0.36"},
+      {:benchee, "~> 1.4", optional: true},
       {:ex_doc, ">= 0.0.0", only: [:dev, :test]}
     ]
   end

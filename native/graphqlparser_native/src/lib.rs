@@ -14,4 +14,4 @@ fn parse_query<'a>(doc: String) -> Result<(Atom, Document), Error> {
     return ast;
 }
 
-rustler::init!("Elixir.GraphQLParser.Native", [parse_query]);
+rustler::init!("Elixir.GraphQLParser.Native");

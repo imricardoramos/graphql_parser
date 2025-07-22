@@ -1,6 +1,6 @@
-use graphql_parser::query;
 use graphql_parser::Pos;
-use rustler::{Atom, Decoder, NifMap, NifResult, NifStruct, NifUntaggedEnum, Term};
+use graphql_parser::query;
+use rustler::{Atom, NifMap, NifStruct, NifUntaggedEnum};
 use std::collections::BTreeMap;
 
 mod atoms {
@@ -32,7 +32,7 @@ impl Document {
             })
             .collect();
         Self {
-            definitions: definitions,
+            definitions,
             loc: Loc::new(None),
         }
     }
@@ -188,7 +188,7 @@ pub struct Variable {
 impl Variable {
     fn new(name: String, position: Option<Pos>) -> Self {
         Self {
-            name: name,
+            name,
             loc: Loc::new(position),
         }
     }
@@ -387,7 +387,7 @@ pub struct NamedType {
 impl NamedType {
     fn new(name: String, position: Option<Pos>) -> Self {
         Self {
-            name: name,
+            name,
             loc: Loc::new(position),
         }
     }
@@ -435,7 +435,7 @@ pub struct StringValue {
 impl StringValue {
     fn new(value: String) -> Self {
         Self {
-            value: value,
+            value,
             loc: Loc::new(None),
         }
     }
@@ -511,7 +511,7 @@ pub struct FloatValue {
 impl FloatValue {
     fn new(value: f64) -> Self {
         Self {
-            value: value,
+            value,
             loc: Loc::new(None),
         }
     }
@@ -526,7 +526,7 @@ pub struct BooleanValue {
 impl BooleanValue {
     fn new(value: bool) -> Self {
         Self {
-            value: value,
+            value,
             loc: Loc::new(None),
         }
     }
@@ -554,7 +554,7 @@ pub struct EnumValue {
 impl EnumValue {
     fn new(value: String) -> Self {
         Self {
-            value: value,
+            value,
             loc: Loc::new(None),
         }
     }
@@ -603,17 +603,17 @@ pub struct ObjectField {
 impl ObjectField {
     fn new(name: String, value: query::Value<String>) -> Self {
         Self {
-            name: name,
+            name,
             value: Value::build(value),
             loc: Loc::new(None),
         }
     }
 }
 // decoder to satisfy rustler
-impl Decoder<'_> for Box<Type> {
-    fn decode(_a: Term<'_>) -> NifResult<Self> {
-        Ok(Box::new(Type::build(query::Type::NamedType(
-            "".to_string(),
-        ))))
-    }
-}
+// impl Decoder<'_> for Box<Type> {
+//     fn decode(_a: Term<'_>) -> NifResult<Self> {
+//         Ok(Box::new(Type::build(query::Type::NamedType(
+//             "".to_string(),
+//         ))))
+//     }
+// }

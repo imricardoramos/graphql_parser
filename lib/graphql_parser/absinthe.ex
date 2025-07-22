@@ -70,7 +70,7 @@ defmodule GraphQLParser.AbsintheParser do
   @spec format_raw_parse_error(map) :: Phase.Error.t()
   defp format_raw_parse_error(%{} = error) do
     detail =
-      if Exception.exception?(error) do
+      if Kernel.is_exception(error) do
         ": " <> Exception.message(error)
       else
         ""

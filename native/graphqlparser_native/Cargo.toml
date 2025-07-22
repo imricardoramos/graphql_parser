@@ -2,7 +2,7 @@
 name = "graphqlparser_native"
 version = "0.1.0"
 authors = []
-edition = "2018"
+edition = "2024"
 
 [lib]
 name = "graphqlparser_native"
@@ -10,5 +10,5 @@ path = "src/lib.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
-rustler = "0.25.0"
-graphql-parser = "0.4.0"
+rustler = "0.36.2"
+graphql-parser = "0.4.1"

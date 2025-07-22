@@ -84,7 +84,7 @@ defmodule GraphQLParserTest do
 
     assert %GraphQLParser.Error{
              locations: [%{column: 10, line: 1}],
-             message: "Parse error\nUnexpected `end of input`\nExpected `}`\n"
+             message: "Parse error\nUnexpected end of input\nExpected }\n"
            } == error
   end
 
